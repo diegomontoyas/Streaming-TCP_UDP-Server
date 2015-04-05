@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eclipse-userlibraries>
+  <library name="Maven: com.googlecode.mp4parser:isoparser:1.0.1">
+    <archive path="/Users/Diego/.m2/repository/com/googlecode/mp4parser/isoparser/1.0.1/isoparser-1.0.1.jar" />
+  </library>
+  <library name="jcodec-0.1.5">
+    <archive path="/Users/Diego/Repositories/StreamingJavaServer/jcodec-0.1.5.jar" />
+  </library>
+  <library name="Maven: org.aspectj:aspectjrt:1.7.3">
+    <archive path="/Users/Diego/.m2/repository/org/aspectj/aspectjrt/1.7.3/aspectjrt-1.7.3.jar" />
+  </library>
+  <library name="Maven: org.bytedeco:javacv:0.10">
+    <archive path="/Users/Diego/.m2/repository/org/bytedeco/javacv/0.10/javacv-0.10.jar" />
+  </library>
+  <library name="Maven: org.bytedeco.javacpp-presets:opencv:2.4.10-0.10">
+    <archive path="/Users/Diego/.m2/repository/org/bytedeco/javacpp-presets/opencv/2.4.10-0.10/opencv-2.4.10-0.10.jar" />
+  </library>
+  <library name="Maven: org.bytedeco.javacpp-presets:ffmpeg:2.5.1-0.10">
+    <archive path="/Users/Diego/.m2/repository/org/bytedeco/javacpp-presets/ffmpeg/2.5.1-0.10/ffmpeg-2.5.1-0.10.jar" />
+  </library>
+  <library name="Maven: org.bytedeco.javacpp-presets:flycapture:2.7.3.13-0.10">
+    <archive path="/Users/Diego/.m2/repository/org/bytedeco/javacpp-presets/flycapture/2.7.3.13-0.10/flycapture-2.7.3.13-0.10.jar" />
+  </library>
+  <library name="Maven: org.bytedeco.javacpp-presets:libdc1394:2.2.2-0.10">
+    <archive path="/Users/Diego/.m2/repository/org/bytedeco/javacpp-presets/libdc1394/2.2.2-0.10/libdc1394-2.2.2-0.10.jar" />
+  </library>
+  <library name="Maven: org.bytedeco.javacpp-presets:libfreenect:0.5.1-0.10">
+    <archive path="/Users/Diego/.m2/repository/org/bytedeco/javacpp-presets/libfreenect/0.5.1-0.10/libfreenect-0.5.1-0.10.jar" />
+  </library>
+  <library name="Maven: org.bytedeco.javacpp-presets:videoinput:0.200-0.10">
+    <archive path="/Users/Diego/.m2/repository/org/bytedeco/javacpp-presets/videoinput/0.200-0.10/videoinput-0.200-0.10.jar" />
+  </library>
+  <library name="Maven: org.bytedeco.javacpp-presets:artoolkitplus:2.3.1-0.10">
+    <archive path="/Users/Diego/.m2/repository/org/bytedeco/javacpp-presets/artoolkitplus/2.3.1-0.10/artoolkitplus-2.3.1-0.10.jar" />
+  </library>
+  <library name="Maven: org.bytedeco.javacpp-presets:flandmark:1.07-0.10">
+    <archive path="/Users/Diego/.m2/repository/org/bytedeco/javacpp-presets/flandmark/1.07-0.10/flandmark-1.07-0.10.jar" />
+  </library>
+  <library name="Maven: org.bytedeco:javacpp:0.10">
+    <archive path="/Users/Diego/.m2/repository/org/bytedeco/javacpp/0.10/javacpp-0.10.jar" />
+  </library>
+</eclipse-userlibraries>
+
