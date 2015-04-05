@@ -15,6 +15,8 @@ public class TCPHandlerThread extends Thread
     private InetAddress clientIP;
     private int clientUDPPort;
 
+    private StreamingThread streamingThread;
+
     public TCPHandlerThread(Socket socket)
     {
         try
@@ -52,15 +54,25 @@ public class TCPHandlerThread extends Thread
             outToClient.writeBytes("PORT ACK");
 
             //Everything set, ready to stream
-            dispatchStreamingThread();
 
             while (true)
             {
                 clientSays = inFromClient.readLine();
 
-                if (clientSays.equals("PAUSE PLEASE"))
+                if (clientSays.equals("PLAY PLEASE"))
                 {
-
+                    if (streamingThread == null)
+                    {
+                        dispatchStreamingThread();
+                    }
+                    else
+                    {
+                        streamingThread.play();
+                    }
+                }
+                else if (clientSays.equals("PAUSE PLEASE"))
+                {
+                    streamingThread.pause();
                 }
             }
         }
@@ -72,6 +84,7 @@ public class TCPHandlerThread extends Thread
 
     public void dispatchStreamingThread ()
     {
-        new StreamingThread("/Users/Diego/Desktop/Honda Ad H264.mp4", clientIP, clientUDPPort).start();
+        streamingThread = new StreamingThread("/Users/Diego/Desktop/Honda Ad H264.mp4", clientIP, clientUDPPort);
+        streamingThread.start();
     }
 }

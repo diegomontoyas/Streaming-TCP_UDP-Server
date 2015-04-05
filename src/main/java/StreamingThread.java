@@ -2,6 +2,7 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.net.*;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,6 +16,10 @@ public class StreamingThread extends Thread
     private InetAddress clientIP;
     private int clientUDPPort;
 
+    private final Object lock = new Object();
+
+    private AtomicBoolean playing = new AtomicBoolean(false);
+
     DatagramSocket UDPSocket;
 
     public StreamingThread(String file, InetAddress clientIP, int clientUDPPort)
@@ -24,6 +29,21 @@ public class StreamingThread extends Thread
         this.clientUDPPort = clientUDPPort;
     }
 
+    public void play ()
+    {
+        playing.set(true);
+
+        synchronized (lock)
+        {
+            lock.notify();
+        }
+    }
+
+    public void pause ()
+    {
+        playing.set(false);
+    }
+
     @Override
     public void run()
     {
@@ -31,7 +51,9 @@ public class StreamingThread extends Thread
 
         try
         {
-            UDPSocket = new DatagramSocket(Server.UDP_PORT);
+            UDPSocket = new DatagramSocket();
+
+            playing.set(true);
 
             Video.VideoIterator iterator = video.iterator();
 
@@ -39,6 +61,14 @@ public class StreamingThread extends Thread
 
             while (currentFrame != null)
             {
+                while (!playing.get())
+                {
+                    synchronized (lock)
+                    {
+                        lock.wait();
+                    }
+                }
+
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
                 ImageIO.write(currentFrame, "jpg", baos);
                 byte[] frameData = baos.toByteArray();

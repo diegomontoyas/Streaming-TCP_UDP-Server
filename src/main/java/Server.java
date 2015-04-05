@@ -6,7 +6,6 @@ import java.net.*;
  */
 public class Server
 {
-    public static final int UDP_PORT = 4141;
     public static final int TCP_PORT = 5050;
 
     ServerSocket TCPSocket;
