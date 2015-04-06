@@ -20,10 +20,13 @@ public class StreamingThread extends Thread
 
     private AtomicBoolean playing = new AtomicBoolean(false);
 
+    private boolean shouldDie = false;
+
     DatagramSocket UDPSocket;
 
     public StreamingThread(String file, InetAddress clientIP, int clientUDPPort)
     {
+        System.out.println("Preparing to stream "+ file);
         video = new Video(file);
         this.clientIP = clientIP;
         this.clientUDPPort = clientUDPPort;
@@ -44,6 +47,11 @@ public class StreamingThread extends Thread
         playing.set(false);
     }
 
+    public void die ()
+    {
+        shouldDie = true;
+    }
+
     @Override
     public void run()
     {
@@ -61,6 +69,8 @@ public class StreamingThread extends Thread
 
             while (currentFrame != null)
             {
+                if (shouldDie) return;
+
                 while (!playing.get())
                 {
                     synchronized (lock)
