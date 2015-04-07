@@ -17,14 +17,11 @@ public class TCPHandlerThread extends Thread
 {
     private Socket socket;
     private InetAddress clientIP;
-    private int clientUDPPort;
 
     private BufferedReader inFromClient;
     private DataOutputStream outToClient;
 
     private StreamingThread streamingThread;
-
-    private Hashtable<String, String> playlist;
 
     public TCPHandlerThread(Socket socket)
     {
@@ -32,16 +29,14 @@ public class TCPHandlerThread extends Thread
         {
             this.socket = socket;
             clientIP = socket.getInetAddress();
-            clientUDPPort = 4040;
 
             inFromClient = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             outToClient = new DataOutputStream(socket.getOutputStream());
-
-            playlist = new Hashtable<String, String>();
-            playlist.put("Honda AD", "/Users/Diego/Desktop/Honda Ad H264.mp4");
-            playlist.put("Gorillaz", "/Users/Diego/Desktop/gorillaz.mp4");
         }
-        catch (Exception e){ e.printStackTrace(); return; }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -59,47 +54,46 @@ public class TCPHandlerThread extends Thread
 
             sendResponse("CREDENTIALS OK");
 
-            clientUDPPort = Integer.parseInt(clientAnswersValueToKey("PORT"));
-
-            sendResponse("PORT ACK");
-
-            if (clientSays("PLAYLIST PLEASE"))
+            if (clientSays("CHANNEL LIST PLEASE"))
             {
-                String playlistResponse = "PLAYLIST=";
+                String channelListResponse = "PLAYLIST=";
 
-                for(String key: playlist.keySet())
+                for(String key: Server.channelList.keySet())
                 {
-                    playlistResponse += key + ",";
+                    channelListResponse += key + ",";
                 }
-                playlistResponse = playlistResponse.substring(0, playlistResponse.length()-1);
+                channelListResponse = channelListResponse.substring(0, channelListResponse.length()-1);
 
-                sendResponse(playlistResponse);
+                sendResponse(channelListResponse);
             }
 
             //Everything set, ready to stream
 
             while (true)
             {
-                String clientSays = clientSays();
+                String clientRequest = clientSays();
 
-                if (clientSays.equals("PLAY PLEASE"))
+                if (clientRequest.equals("PLEASE PLAY"))
                 {
                     streamingThread.play();
                 }
-                else if (clientSays.equals("PAUSE PLEASE"))
+                else if (clientRequest.equals("PLEASE PAUSE"))
                 {
                     streamingThread.pause();
                 }
-                else if (clientSays.startsWith("PLAY="))
+                else if (clientRequest.startsWith("PLEASE GIMME INFO FROM="))
                 {
-                    dispatchStreamingThread(clientSays.split("=")[1]);
+                    //dispatchStreamingThread(clientSays.split("=")[1]);
+
+                    String videoName = clientRequest.split("=")[1];
+
+                    sendResponse(Server.channelListGroupsIPS.get(videoName).getHostName()+":"+Server.channelListGroupsUDPPorts.get(videoName));
                 }
             }
         }
         catch (Exception e)
         {
             e.printStackTrace();
-            return;
         }
     }
 
@@ -129,15 +123,22 @@ public class TCPHandlerThread extends Thread
         outToClient.writeBytes(value);
     }
 
-    public void dispatchStreamingThread (String videoTitle)
+    /*public void dispatchStreamingThread (String videoTitle)
     {
-        if (streamingThread != null)
+        try
         {
-            streamingThread.die();
-            streamingThread = null;
-        }
+            if (streamingThread != null)
+            {
+                streamingThread.die();
+                streamingThread = null;
+            }
 
-        streamingThread = new StreamingThread(playlist.get(videoTitle), clientIP, clientUDPPort);
-        streamingThread.start();
-    }
+            streamingThread = new StreamingThread(Server.channelList.get(videoTitle), clientIP, clientUDPPort);
+            streamingThread.start();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }*/
 }

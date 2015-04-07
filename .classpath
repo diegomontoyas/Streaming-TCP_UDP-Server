@@ -24,5 +24,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Maven: org.bytedeco.javacpp-presets:tesseract:3.03-rc1-0.10"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Maven: org.jcodec:jcodec:0.1.6"/>
 	<classpathentry kind="var" path="APPLICATION_HOME_DIR/lib/junit.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jave-1.0.2"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

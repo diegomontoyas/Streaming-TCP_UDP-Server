@@ -1,6 +1,7 @@
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.net.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -13,8 +14,8 @@ public class StreamingThread extends Thread
     public static final double FRAMERATE = 30;
 
     private Video video;
-    private InetAddress clientIP;
-    private int clientUDPPort;
+    private InetAddress groupIP;
+    private int groupUDPPort;
 
     private final Object lock = new Object();
 
@@ -24,12 +25,12 @@ public class StreamingThread extends Thread
 
     DatagramSocket UDPSocket;
 
-    public StreamingThread(String file, InetAddress clientIP, int clientUDPPort)
+    public StreamingThread(String file, InetAddress groupIP, int groupUDPPort) throws IOException
     {
         System.out.println("Preparing to stream "+ file);
         video = new Video(file);
-        this.clientIP = clientIP;
-        this.clientUDPPort = clientUDPPort;
+        this.groupIP = groupIP;
+        this.groupUDPPort = groupUDPPort;
     }
 
     public void play ()
@@ -83,7 +84,7 @@ public class StreamingThread extends Thread
                 ImageIO.write(currentFrame, "jpg", baos);
                 byte[] frameData = baos.toByteArray();
 
-                DatagramPacket packet = new DatagramPacket(frameData, frameData.length, clientIP, clientUDPPort);
+                DatagramPacket packet = new DatagramPacket(frameData, frameData.length, groupIP, groupUDPPort);
                 UDPSocket.send(packet);
 
                 currentFrame = iterator.getNextFrame();
