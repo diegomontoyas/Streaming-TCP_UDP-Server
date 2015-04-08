@@ -22,6 +22,8 @@ public class Server
 
     private static PrintWriter writer;
 
+    public static final String path = "/home/diego/Universidad/streamingjavaserver/videos";
+
     public static void main(String[] args)
     {
         new Server().start();
@@ -33,9 +35,9 @@ public class Server
         {
             loadUsers();
 
-            addVideoToChannelList("Charles Chaplin", "/Users/Diego/Desktop/charles.mp4", "239.255.255.250", 8881);
-            addVideoToChannelList("Buster Keaton", "/Users/Diego/Desktop/Buster Keaton.mp4", "239.255.255.251", 8882);
-            addVideoToChannelList("Honda", "/Users/Diego/Desktop/honda.mp4", "239.255.255.252", 8883);
+            addVideoToChannelList("Charles Chaplin", path+"/charles.mp4", "239.255.255.250", 8881);
+            addVideoToChannelList("Buster Keaton", path+"/Buster Keaton.mp4", "239.255.255.251", 8882);
+            addVideoToChannelList("Honda", path+"/honda.mp4", "239.255.255.252", 8883);
         }
         catch (Exception e)
         {
@@ -112,7 +114,7 @@ public class Server
     {
         try
         {
-            writer = new PrintWriter(new BufferedWriter(new FileWriter("/Users/Diego/Desktop/logs.txt", true)));
+            writer = new PrintWriter(new BufferedWriter(new FileWriter(path+"/logs.txt", true)));
             writer.println(message);
             writer.close();
         }
