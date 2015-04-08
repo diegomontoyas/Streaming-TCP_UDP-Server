@@ -2,28 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="32be0304-e6e2-4b90-bec7-74e78409bd30" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xuggle_xuggle_xuggler_5_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/usuarios.properties" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jave-1.0.2.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/Server.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/Test.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/StreamingJavaServer-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/target/StreamingJavaServer-1.0-SNAPSHOT.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/StreamingThread.class" afterPath="$PROJECT_DIR$/target/classes/StreamingThread.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/TCPHandlerThread.class" afterPath="$PROJECT_DIR$/target/classes/TCPHandlerThread.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Video$1.class" afterPath="$PROJECT_DIR$/target/classes/Video$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Video$VideoIterator.class" afterPath="$PROJECT_DIR$/target/classes/Video$VideoIterator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Video.class" afterPath="$PROJECT_DIR$/target/classes/Video.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.classpath" afterPath="$PROJECT_DIR$/.classpath" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/MANIFEST.MF" afterPath="$PROJECT_DIR$/target/MANIFEST.MF" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Server.java" afterPath="$PROJECT_DIR$/src/main/java/Server.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/StreamingJavaServer.eml" afterPath="$PROJECT_DIR$/StreamingJavaServer.eml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/StreamingThread.java" afterPath="$PROJECT_DIR$/src/main/java/StreamingThread.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/TCPHandlerThread.java" afterPath="$PROJECT_DIR$/src/main/java/TCPHandlerThread.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Video.java" afterPath="$PROJECT_DIR$/src/main/java/Video.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="StreamingJavaServer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -54,11 +34,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Server.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Server.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1134" max-vertical-offset="1845">
-              <caret line="103" column="32" selection-start-line="103" selection-start-column="32" selection-end-line="103" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.6533613" vertical-offset="1429" max-vertical-offset="1950">
+              <caret line="116" column="27" selection-start-line="116" selection-start-column="27" selection-end-line="116" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#310#326#0" expanded="true" />
@@ -71,11 +51,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TCPHandlerThread.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TCPHandlerThread.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/TCPHandlerThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.31932774" vertical-offset="658" max-vertical-offset="2475">
-              <caret line="54" column="40" selection-start-line="54" selection-start-column="40" selection-end-line="54" selection-end-column="40" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="658" max-vertical-offset="2475">
+              <caret line="55" column="23" selection-start-line="55" selection-start-column="23" selection-end-line="55" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -129,8 +109,8 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/Video.java" />
         <option value="$PROJECT_DIR$/src/main/java/StreamingThread.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Server.java" />
         <option value="$PROJECT_DIR$/src/main/java/TCPHandlerThread.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Server.java" />
       </list>
     </option>
   </component>
@@ -662,12 +642,12 @@
       <workItem from="1428008714354" duration="1220000" />
       <workItem from="1428100281075" duration="10057000" />
       <workItem from="1428123233193" duration="38756000" />
-      <workItem from="1428449207492" duration="8362000" />
+      <workItem from="1428449207492" duration="8796000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58395000" />
+    <option name="totallyTimeSpent" value="58829000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1025,10 +1005,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/TCPHandlerThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="658" max-vertical-offset="2475">
+          <caret line="55" column="23" selection-start-line="55" selection-start-column="23" selection-end-line="55" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Server.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1134" max-vertical-offset="1845">
-          <caret line="103" column="32" selection-start-line="103" selection-start-column="32" selection-end-line="103" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.6533613" vertical-offset="1429" max-vertical-offset="1950">
+          <caret line="116" column="27" selection-start-line="116" selection-start-column="27" selection-end-line="116" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#310#326#0" expanded="true" />
@@ -1036,16 +1026,6 @@
             <element signature="e#519#540#0" expanded="true" />
             <element signature="e#636#653#0" expanded="true" />
             <element signature="e#729#746#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/TCPHandlerThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31932774" vertical-offset="658" max-vertical-offset="2475">
-          <caret line="54" column="40" selection-start-line="54" selection-start-column="40" selection-end-line="54" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

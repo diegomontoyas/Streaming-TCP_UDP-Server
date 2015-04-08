@@ -49,7 +49,7 @@ public class TCPHandlerThread extends Thread
             String credentials = clientSays();
             String[] usernamePassword = credentials.split(":");
 
-            if (!Server.users.get(usernamePassword[0]).equals(usernamePassword[1]))
+            if (Server.users.get(usernamePassword[0])==null || !Server.users.get(usernamePassword[0]).equals(usernamePassword[1]))
             {
                 Server.log(clientIP+ " failed to login: Incorrect credentials");
                 sendResponse("INCORRECT CREDENTIALS");

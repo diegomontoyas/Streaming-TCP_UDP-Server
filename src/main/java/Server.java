@@ -31,8 +31,6 @@ public class Server
     {
         try
         {
-            writer = new PrintWriter("/Users/Diego/Desktop/logs.txt", "UTF-8");
-
             loadUsers();
 
             addVideoToChannelList("Charles Chaplin", "/Users/Diego/Desktop/charles.mp4", "239.255.255.250", 8881);
@@ -112,6 +110,15 @@ public class Server
 
     public static void log(String message)
     {
-        writer.println(message);
+        try
+        {
+            writer = new PrintWriter(new BufferedWriter(new FileWriter("/Users/Diego/Desktop/logs.txt", true)));
+            writer.println(message);
+            writer.close();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
     }
 }
