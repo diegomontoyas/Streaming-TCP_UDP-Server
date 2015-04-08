@@ -7,6 +7,7 @@
 	</contentEntry>
 	<levels>
 		<level name="jcodec-0.1.5" value="project"/>
+		<level name="jave-1.0.2" value="project"/>
 		<level name="Maven: com.googlecode.mp4parser:isoparser:1.0.1" value="project"/>
 		<level name="Maven: org.aspectj:aspectjrt:1.7.3" value="project"/>
 		<level name="Maven: org.bytedeco:javacpp:0.10" value="project"/>
@@ -25,6 +26,5 @@
 		<level name="Maven: org.bytedeco.javacpp-presets:leptonica:1.71-0.10" value="project"/>
 		<level name="Maven: org.bytedeco.javacpp-presets:tesseract:3.03-rc1-0.10" value="project"/>
 		<level name="Maven: org.jcodec:jcodec:0.1.6" value="project"/>
-		<level name="jave-1.0.2" value="project"/>
 	</levels>
 </component>

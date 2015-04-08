@@ -1,4 +1,5 @@
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -58,43 +59,55 @@ public class StreamingThread extends Thread
     {
         super.run();
 
-        try
+        while (true)
         {
-            UDPSocket = new DatagramSocket();
-
-            playing.set(true);
-
-            Video.VideoIterator iterator = video.iterator();
-
-            BufferedImage currentFrame = iterator.getNextFrame();
-
-            while (currentFrame != null)
+            try
             {
-                if (shouldDie) return;
+                UDPSocket = new DatagramSocket();
 
-                while (!playing.get())
+                playing.set(true);
+
+                Video.VideoIterator iterator = video.iterator();
+
+                BufferedImage currentFrame = iterator.getNextFrame();
+
+                while (currentFrame != null)
                 {
-                    synchronized (lock)
+                    if (shouldDie) return;
+
+                    while (!playing.get())
                     {
-                        lock.wait();
+                        synchronized (lock)
+                        {
+                            lock.wait();
+                        }
                     }
+
+                    int width = 640, height = 360;
+                    
+                    BufferedImage scaledFrame = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+
+                    Graphics g = scaledFrame.createGraphics();
+                    g.drawImage(currentFrame, 0, 0, width, height, null);
+                    g.dispose();
+
+                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                    ImageIO.write(scaledFrame, "jpg", baos);
+                    byte[] frameData = baos.toByteArray();
+                    baos.close();
+
+                    DatagramPacket packet = new DatagramPacket(frameData, frameData.length, groupIP, groupUDPPort);
+                    UDPSocket.send(packet);
+
+                    currentFrame = iterator.getNextFrame();
+
+                    Thread.sleep((long)((1/FRAMERATE)*1000));
                 }
-
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                ImageIO.write(currentFrame, "jpg", baos);
-                byte[] frameData = baos.toByteArray();
-
-                DatagramPacket packet = new DatagramPacket(frameData, frameData.length, groupIP, groupUDPPort);
-                UDPSocket.send(packet);
-
-                currentFrame = iterator.getNextFrame();
-
-                Thread.sleep((long)((1/FRAMERATE)*1000));
             }
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
+            catch (Exception e)
+            {
+                e.printStackTrace();
+            }
         }
     }
 }

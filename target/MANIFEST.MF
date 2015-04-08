@@ -1,5 +1,14 @@
 Manifest-Version: 1.0
+Class-Path: lib/isoparser-1.0.1.jar lib/aspectjrt-1.7.3.jar lib/javacp
+ p-0.10.jar lib/javacv-0.10.jar lib/opencv-2.4.10-0.10.jar lib/ffmpeg-
+ 2.5.1-0.10.jar lib/flycapture-2.7.3.13-0.10.jar lib/libdc1394-2.2.2-0
+ .10.jar lib/libfreenect-0.5.1-0.10.jar lib/videoinput-0.200-0.10.jar 
+ lib/artoolkitplus-2.3.1-0.10.jar lib/flandmark-1.07-0.10.jar lib/fftw
+ -3.3.4-0.10.jar lib/gsl-1.16-0.10.jar lib/llvm-3.5.0-0.10.jar lib/lep
+ tonica-1.71-0.10.jar lib/tesseract-3.03-rc1-0.10.jar lib/jcodec-0.1.6
+ .jar
 Build-Jdk: 1.8.0_20
 Built-By: Diego
 Created-By: IntelliJ IDEA
+Main-Class: Server
 

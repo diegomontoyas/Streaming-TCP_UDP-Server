@@ -46,12 +46,17 @@ public class TCPHandlerThread extends Thread
 
         try
         {
-            clientAnswersValueToKey("USER");
+            String credentials = clientSays();
+            String[] usernamePassword = credentials.split(":");
 
-            sendResponse("USER ACK");
+            if (!Server.users.get(usernamePassword[0]).equals(usernamePassword[1]))
+            {
+                Server.log(clientIP+ " failed to login: Incorrect credentials");
+                sendResponse("INCORRECT CREDENTIALS");
+                return;
+            }
 
-            clientAnswersValueToKey("PASSWORD");
-
+            Server.log(clientIP+ " logged in successfully");
             sendResponse("CREDENTIALS OK");
 
             if (clientSays("CHANNEL LIST PLEASE"))
@@ -75,25 +80,35 @@ public class TCPHandlerThread extends Thread
 
                 if (clientRequest.equals("PLEASE PLAY"))
                 {
-                    streamingThread.play();
+                    //streamingThread.play();
                 }
                 else if (clientRequest.equals("PLEASE PAUSE"))
                 {
-                    streamingThread.pause();
+                    //streamingThread.pause();
                 }
-                else if (clientRequest.startsWith("PLEASE GIMME INFO FROM="))
+                else if (clientRequest.startsWith("PLEASE GIVE ME INFO FOR="))
                 {
                     //dispatchStreamingThread(clientSays.split("=")[1]);
 
                     String videoName = clientRequest.split("=")[1];
 
                     sendResponse(Server.channelListGroupsIPS.get(videoName).getHostName()+":"+Server.channelListGroupsUDPPorts.get(videoName));
+
+                    Server.log(clientIP+ " tuned in to channel "+videoName);
                 }
             }
         }
         catch (Exception e)
         {
             e.printStackTrace();
+            try
+            {
+                socket.close();
+            }
+            catch (IOException e1)
+            {
+                e1.printStackTrace();
+            }
         }
     }
 

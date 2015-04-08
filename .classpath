@@ -5,6 +5,8 @@
 	<classpathentry kind="src" path="src/main/resources"/>
 	<classpathentry kind="src" path="src/test/java"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jcodec-0.1.5"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jave-1.0.2"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Maven: com.googlecode.mp4parser:isoparser:1.0.1"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Maven: org.aspectj:aspectjrt:1.7.3"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Maven: org.bytedeco:javacpp:0.10"/>
@@ -23,7 +25,5 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Maven: org.bytedeco.javacpp-presets:leptonica:1.71-0.10"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Maven: org.bytedeco.javacpp-presets:tesseract:3.03-rc1-0.10"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Maven: org.jcodec:jcodec:0.1.6"/>
-	<classpathentry kind="var" path="APPLICATION_HOME_DIR/lib/junit.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jave-1.0.2"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

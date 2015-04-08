@@ -1,8 +1,5 @@
 import com.coremedia.iso.IsoFile;
 import com.googlecode.mp4parser.MemoryDataSourceImpl;
-import it.sauronsoftware.jave.AudioAttributes;
-import it.sauronsoftware.jave.Encoder;
-import it.sauronsoftware.jave.EncodingAttributes;
 import org.bytedeco.javacv.*;
 import org.jcodec.api.FrameGrab;
 import org.jcodec.common.AutoFileChannelWrapper;
@@ -56,6 +53,7 @@ public class Video
     {
         private FFmpegFrameGrabber grabber;
         private FileChannelWrapper wrapper;
+
         private int currentFrame = 0;
 
         private final int AUDIO_SAMPLE_SIZE = 100000;
@@ -72,9 +70,8 @@ public class Video
                 grabber = new FFmpegFrameGrabber(file);
                 grabber.start();
 
-
-                audioFileSize = audioTempFile.length();
-                audioStream = new FileInputStream(audioTempFile);
+                //audioFileSize = audioTempFile.length();
+                //audioStream = new FileInputStream(audioTempFile);
 
                 //wrapper = NIOUtils.readableFileChannel(file);
             }
@@ -84,7 +81,7 @@ public class Video
             }
         }
 
-        private void extractAudio ()
+        /*private void extractAudio ()
         {
             try
             {
@@ -126,7 +123,7 @@ public class Video
             }
 
             return null;
-        }
+        }*/
 
         public BufferedImage getNextFrame ()
         {
@@ -135,6 +132,7 @@ public class Video
                 /*System.out.println("Frame "+ currentFrame);
                 BufferedImage frame = FrameGrab.getFrame(wrapper, currentFrame++);
                 return frame;*/
+
                 return grabber.grab().getBufferedImage();
             }
             catch (Exception e)
