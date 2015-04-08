@@ -83,7 +83,7 @@ public class StreamingThread extends Thread
                         }
                     }
 
-                    int width = 640, height = 360;
+                    int width = 355, height = 200;
                     
                     BufferedImage scaledFrame = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 
